@@ -1,5 +1,5 @@
 # SwiffeeVR
-A VR control app for Swiffee - The Quadruped Robot
+A VR control app for Proto
 
 Displays 2 camera streams side by side to make it look like real while phone is inside the VR headset. Gyroscopic inputs have
 to be used to know whether the user is looking up or down. Left or right movements for camera would be same as turning left or
