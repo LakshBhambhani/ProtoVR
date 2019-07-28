@@ -1,4 +1,4 @@
-# SwiffeeVR
+# ProtoVR
 A VR control app for Proto
 
 Displays 2 camera streams side by side to make it look like real while phone is inside the VR headset. Gyroscopic inputs have
