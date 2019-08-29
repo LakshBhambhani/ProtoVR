@@ -14,10 +14,11 @@ import CoreMotion
 
 class ViewController: UIViewController, WKUIDelegate {
     
-   var manager = CMMotionManager()
+    let manager = CMMotionManager()
     var loadView: WKWebView!
     
-    let ip = "192.168.0.33"
+    let ip = "192.168.5.1"
+    var lastMotion = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,105 +37,96 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
     func gyroscope(){
-        manager.gyroUpdateInterval = 1.0 / 25.0
-        manager.startGyroUpdates(to: OperationQueue.current!){ (data, error) in
-        print(data as Any)
-            if let trueData = data{
-                self.view.reloadInputViews()
-                let x =  trueData.rotationRate.x
-                let y =  trueData.rotationRate.y
-                let z =  trueData.rotationRate.z
-                
-                var lastMotion = ""
-                
-                if y < 0.5{
-                    if lastMotion != "bendBack" && lastMotion != "bow"{
-                        self.bendBackAction()
-                        lastMotion = "bendBack"
-                    }
-                    else{
-                        self.homeAction()
-                        lastMotion =  "homePos"
-                    }
+        manager.startAccelerometerUpdates()
+        manager.accelerometerUpdateInterval = 0.1
+        manager.startDeviceMotionUpdates(to: OperationQueue.main){
+            (data, error) in
+            let roll = (data?.attitude.roll)!
+            let yaw = (data?.attitude.yaw)!
+            
+
+                            if (roll < 1.0){
+                                if !(self.lastMotion == "reverse"){
+                                    reverseAction()
+                                    self.lastMotion = "reverse"
+                                }
+                            }
+                            if (roll > 1.8 ){
+                                if !(self.lastMotion == "forward"){
+                                    forwardAction()
+                                    self.lastMotion = "forward"
+                                }
+                            }
+
+                            if (yaw < -0.5){
+                                if !(self.lastMotion == "right"){
+                                    rightAction()
+                                    self.lastMotion = "right"
+                                }
+                            }
+                            if (yaw > 0.4) {
+                                if !(self.lastMotion == "left"){
+                                    leftAction()
+                                    self.lastMotion = "left"
+                                }
+                            }
+            if (roll > 1.0 && roll < 1.8 && yaw > -0.5 && yaw < 0.4){
+                if (self.lastMotion != "home"){
+                    homeAction()
+                    self.lastMotion = "home"
                 }
-                if y > -0.5 {
-                    if lastMotion != "bow" && lastMotion != "bendBack"{
-                        self.bowAction()
-                        lastMotion = "bow"
-                    }
-                    else{
-                        self.homeAction()
-                        lastMotion = "homePos"
-                    }
-                }
-                
-                if x > 0.5{
-                    if lastMotion != "right"{
-                        self.rightAction()
-                        lastMotion = "right"
-                    }
-                }
-                if y < -0.5 {
-                    if lastMotion != "left"{
-                        self.leftAction()
-                        lastMotion = "left"
-                    }
-                }
-//                print("x: \(Double(x).rounded(toPlaces :3))")
-//                print("y: \(Double(y).rounded(toPlaces :3))")
-//                print("z: \(Double(z).rounded(toPlaces :3))")
             }
-        }
-    }
+       }
     
     func leftAction() {
-        print("Left Clicked")
+        print("left")
         let url = URL(string: "http://" + ip + "/turnLeft");
         let request = URLRequest(url: url!);
         loadView.load(request);
-        print(url)
+        //print(url)
     }
-    
+
     func rightAction() {
-        print("Right Clicked")
+        print("right")
         let url = URL(string: "http://" + ip + "/turnRight");
         let request = URLRequest(url: url!);
         loadView.load(request);
-        print(url)
+        //print(url)
     }
-    
-    func bowAction() {
-        print("Bow Clicked")
-        let url = URL(string: "http://" + ip + "/bow");
+
+    func forwardAction() {
+        print("forward")
+        let url = URL(string: "http://" + ip + "/forward");
         let request = URLRequest(url: url!);
         loadView.load(request);
-        print(url)
+        //print(url)
     }
-    
-    func bendBackAction() {
-        print("Bend Back Clicked")
-        let url = URL(string: "http://" + ip + "/bendBack");
+
+    func reverseAction() {
+        print("reverse")
+        let url = URL(string: "http://" + ip + "/reverse");
         let request = URLRequest(url: url!);
         loadView.load(request);
-        print(url)
+        //print(url)
     }
-    
+
     func homeAction() {
-            print("Home Clicked")
-            let url = URL(string: "http://" + ip + "/homePos");
+        print("home")
+            let url = URL(string: "http://" + ip + "/stop");
             let request = URLRequest(url: url!);
             loadView.load(request);
-            print(url)
+           // print(url)
         }
-    
+
 
 }
 
-extension Double {
-    /// Rounds the double to decimal places value
-    func rounded(toPlaces places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
-}
+//extension Double {
+//    /// Rounds the double to decimal places value
+//    func rounded(toPlaces places:Int) -> Double {
+//        let divisor = pow(10.0, Double(places))
+//        return (self * divisor).rounded() / divisor
+//    }
+//}
 
+}
