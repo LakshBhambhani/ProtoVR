@@ -12,7 +12,9 @@
 		6927DD7022E411F400FCBD3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6927DD6E22E411F400FCBD3A /* Main.storyboard */; };
 		6927DD7222E411F800FCBD3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6927DD7122E411F800FCBD3A /* Assets.xcassets */; };
 		6927DD7522E411F800FCBD3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6927DD7322E411F800FCBD3A /* LaunchScreen.storyboard */; };
-		6927DD7D22E4DEEF00FCBD3A /* home.html in Resources */ = {isa = PBXBuildFile; fileRef = 6927DD7C22E4DEEF00FCBD3A /* home.html */; };
+		6927DD7D22E4DEEF00FCBD3A /* iphone.html in Resources */ = {isa = PBXBuildFile; fileRef = 6927DD7C22E4DEEF00FCBD3A /* iphone.html */; };
+		695EABB6231998F200F0F701 /* StoryboardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695EABB5231998F200F0F701 /* StoryboardiPad.storyboard */; };
+		695EABB823199C1F00F0F701 /* iPad.html in Resources */ = {isa = PBXBuildFile; fileRef = 695EABB723199C1F00F0F701 /* iPad.html */; };
 		6988E58E22F4EF19000AEA33 /* dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6988E58D22F4EF19000AEA33 /* dashboard.png */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +26,9 @@
 		6927DD7122E411F800FCBD3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6927DD7422E411F800FCBD3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6927DD7622E411F800FCBD3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6927DD7C22E4DEEF00FCBD3A /* home.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = home.html; sourceTree = "<group>"; };
+		6927DD7C22E4DEEF00FCBD3A /* iphone.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = iphone.html; sourceTree = "<group>"; };
+		695EABB5231998F200F0F701 /* StoryboardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardiPad.storyboard; sourceTree = "<group>"; };
+		695EABB723199C1F00F0F701 /* iPad.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = iPad.html; sourceTree = "<group>"; };
 		6988E58D22F4EF19000AEA33 /* dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashboard.png; path = ../../Tests/dashboard.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,9 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				6988E58D22F4EF19000AEA33 /* dashboard.png */,
-				6927DD7C22E4DEEF00FCBD3A /* home.html */,
+				6927DD7C22E4DEEF00FCBD3A /* iphone.html */,
 				6927DD6A22E411F400FCBD3A /* AppDelegate.swift */,
 				6927DD6C22E411F400FCBD3A /* ViewController.swift */,
+				695EABB5231998F200F0F701 /* StoryboardiPad.storyboard */,
+				695EABB723199C1F00F0F701 /* iPad.html */,
 				6927DD6E22E411F400FCBD3A /* Main.storyboard */,
 				6927DD7122E411F800FCBD3A /* Assets.xcassets */,
 				6927DD7322E411F800FCBD3A /* LaunchScreen.storyboard */,
@@ -129,10 +135,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6927DD7522E411F800FCBD3A /* LaunchScreen.storyboard in Resources */,
-				6927DD7D22E4DEEF00FCBD3A /* home.html in Resources */,
+				6927DD7D22E4DEEF00FCBD3A /* iphone.html in Resources */,
 				6988E58E22F4EF19000AEA33 /* dashboard.png in Resources */,
+				695EABB823199C1F00F0F701 /* iPad.html in Resources */,
 				6927DD7222E411F800FCBD3A /* Assets.xcassets in Resources */,
 				6927DD7022E411F400FCBD3A /* Main.storyboard in Resources */,
+				695EABB6231998F200F0F701 /* StoryboardiPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

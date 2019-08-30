@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Swiffee VR
+//  Proto VR
 //
 //  Created by Laksh Bhambhani on 7/20/19.
 //  Copyright © 2019 Laksh Bhambhani. All rights reserved.
@@ -28,7 +28,7 @@ class ViewController: UIViewController, WKUIDelegate {
         loadView.uiDelegate = self
         
         let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        let localfilePath = Bundle.main.url(forResource: "home", withExtension: "html");
+        let localfilePath = Bundle.main.url(forResource: "iphone", withExtension: "html");
         let myRequest = NSURLRequest(url: localfilePath!);
         webView.load(myRequest as URLRequest);
         self.view.addSubview(webView)
